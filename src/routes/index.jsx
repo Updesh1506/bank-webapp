@@ -1,25 +1,17 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function IndexPage() {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h1>This is the index page</h1>
-      <div>
-        <ul>
-          <li>
-            <Link to="/sign-up">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/sign-in">Sign In</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold mb-6">Welcome to Our Platform</h1>
+      <button
+        className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600"
+        onClick={() => navigate('/sign-in')}
+      >
+        Get Started
+      </button>
     </div>
-  )
+  );
 }

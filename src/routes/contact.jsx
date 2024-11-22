@@ -11,9 +11,7 @@ export default function ContactPage() {
         <li>
           <Link to="/">Return to Index</Link>
         </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
+        
       </ul>
     </>
   )
