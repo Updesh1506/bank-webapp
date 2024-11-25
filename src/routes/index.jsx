@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function IndexPage() {
       >
         Get Started
       </button>
+      <Button onClick={() => navigate('/sign-in')}>Get Started(dont showing backgorund)</Button>
     </div>
   );
 }

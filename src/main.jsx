@@ -9,6 +9,12 @@ import IndexPage from './routes';
 
 import SignInPage from './routes/sign-in';
 import SignUpPage from './routes/sign-up';
+import  Home  from './routes/home';
+
+// Import the Layouts
+
+import SidebarLayout from './layouts/sidebar-layout';
+
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -18,9 +24,16 @@ if (!PUBLISHABLE_KEY) {
 
 // Define the router
 const router = createBrowserRouter([
+{
+  element:<SidebarLayout/>,
+  children: [
+    {path: '/home/*' , element:<Home/>}
+  ]
+},
   { path: '/', element: <IndexPage /> },
   { path: '/sign-in/*', element: <SignInPage /> },
   { path: '/sign-up/*', element: <SignUpPage /> },
+ 
 ]);
 
 // Render the application
