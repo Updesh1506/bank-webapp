@@ -17,6 +17,7 @@ export const transactionData = {
       category: "online",
       name: "updesh",
       status: "completed",
+      paymentChannel: "online",
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ export const transactionData = {
       type: "debit",
       category: "online",
       name: "hemant",
+      paymentChannel: "online",
     },
     {
       id: 3,
@@ -33,6 +35,7 @@ export const transactionData = {
       type: "credit",
       category: "online",
       name: "om",
+      paymentChannel: "online",
     },
   ],
   appwriteItemId: 1,
