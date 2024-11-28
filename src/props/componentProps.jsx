@@ -80,3 +80,36 @@ export const doughnutChart = {
     userName: PropTypes.string.isRequired,
     showBalance: PropTypes.bool,
   };
+
+  export const recentTransactionProps={
+    accounts: PropTypes.array.isRequired,
+  transactions: PropTypes.array,
+  appwriteItemId: PropTypes.string.isRequired,
+  page: PropTypes.number,
+  }
+
+  export const bankTabItemProps={
+    accounts: PropTypes.array.isRequired,
+    appwriteItemId: PropTypes.string.isRequired,
+  }
+
+  export const bankInfoProps={
+    accounts: PropTypes.array.isRequired,
+    appwriteItemId: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(["full", "card"]).isRequired,
+  }
+
+  export const transactionTableProps={
+    transactions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+        date: PropTypes.string.isRequired,
+        description: PropTypes.string,
+      })
+    ).isRequired,
+  }
+
+  export const categoryBadgeProps={
+    category: PropTypes.string.isRequired,
+  }
