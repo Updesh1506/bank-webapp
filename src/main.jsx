@@ -10,6 +10,9 @@ import IndexPage from './routes';
 import SignInPage from './routes/sign-in';
 import SignUpPage from './routes/sign-up';
 import  Home  from './routes/home';
+import TransactionHistory from './routes/transaction-history';
+import MyBanks from './routes/myBanks';
+
 
 // Import the Layouts
 
@@ -27,7 +30,9 @@ const router = createBrowserRouter([
 {
   element:<SidebarLayout/>,
   children: [
-    {path: '/home/*' , element:<Home/>}
+    {path: '/home/*' , element:<Home/>},
+    {path: '/transaction-history/*',element:<TransactionHistory/>},
+    {path: '/myBanks/*',element:<MyBanks/>}
   ]
 },
   { path: '/', element: <IndexPage /> },

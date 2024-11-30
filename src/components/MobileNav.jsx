@@ -16,7 +16,7 @@ const sidebarLinks=[ {
   },
   {
     imgURL: "/vite.svg",
-    route: "/my-banks",
+    route: "/myBanks",
     label: "My Banks",
   },
   {

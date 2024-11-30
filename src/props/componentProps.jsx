@@ -113,3 +113,14 @@ export const doughnutChart = {
   export const categoryBadgeProps={
     category: PropTypes.string.isRequired,
   }
+
+  export const searchParamProps={
+    params: PropTypes.objectOf(PropTypes.string).isRequired,
+    searchParams: PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.undefined,
+      ])
+    ).isRequired,
+  }

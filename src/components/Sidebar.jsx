@@ -10,7 +10,7 @@ const sidebarLinks=[ {
   },
   {
     imgURL: "/icons/dollar-circle.svg",
-    route: "/my-banks",
+    route: "/myBanks",
     label: "My Banks",
   },
   {
