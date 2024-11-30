@@ -1,5 +1,6 @@
 import HeaderBox from "@/components/HeaderBox"
-// import TransactionTable from "@/components/TransactionTable"
+import TransactionTable from "@/components/TransactionTable"
+import { transactionData } from "../lib/transaction_data";
 // import { searchParamProps } from "@/props/componentProps"
 
 
@@ -26,9 +27,7 @@ const TransactionHistory = () => {
 
         </div>
         <section className="flex w-full flex-col gap-6">
-             {/* <TransactionTable transactions={transactions}/> */}
-
-             transaction table as on home page.
+             <TransactionTable transactions={transactionData.transactions}/>
         </section>
 
       </div>
