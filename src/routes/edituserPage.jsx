@@ -38,7 +38,7 @@ const EditUserPage = () => {
 
   const handleSave = () => {
     console.log("Updated User:", user);
-    navigate("/");
+    navigate("/adminPage");
   };
 
   return (
