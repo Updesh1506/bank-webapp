@@ -12,6 +12,8 @@ import SignUpPage from './routes/sign-up';
 import  Home  from './routes/home';
 import TransactionHistory from './routes/transaction-history';
 import MyBanks from './routes/myBanks';
+import AdminPage from './routes/adminPage';
+import EditUserPage from './routes/edituserPage';
 
 
 // Import the Layouts
@@ -38,6 +40,8 @@ const router = createBrowserRouter([
   { path: '/', element: <IndexPage /> },
   { path: '/sign-in/*', element: <SignInPage /> },
   { path: '/sign-up/*', element: <SignUpPage /> },
+  {path :'/adminPage/*', element:<AdminPage />},
+  { path: '/edit-user/:userId', element: <EditUserPage /> },
  
 ]);
 
