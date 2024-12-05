@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
 const EditUserPage = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -15,11 +16,17 @@ const EditUserPage = () => {
     banks: ["Bank A", "Bank B"],
   });
 
-  const updateBalance = (amount) => {
-    setUser((prev) => ({
-      ...prev,
-      balance: prev.balance + amount,
-    }));
+  const [amount, setAmount] = useState("");
+
+  const updateBalance = () => {
+    const parsedAmount = parseFloat(amount); // Convert string to number
+    if (!isNaN(parsedAmount)) {
+      setUser((prev) => ({
+        ...prev,
+        balance: prev.balance + parsedAmount,
+      }));
+    }
+    setAmount(""); // Clear input after updating
   };
 
   const addBank = () => {
@@ -49,8 +56,13 @@ const EditUserPage = () => {
           <div className="mb-4">
             <p className="text-lg font-medium">Balance: ${user.balance}</p>
             <div className="flex gap-2 mt-2">
-              <Button onClick={() => updateBalance(100)}>Increase $100</Button>
-              <Button onClick={() => updateBalance(-100)}>Decrease $100</Button>
+              <Input
+                type="number"
+                placeholder="Enter amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              <Button onClick={updateBalance}>Update Balance</Button>
             </div>
           </div>
           <div>
@@ -82,4 +94,3 @@ const EditUserPage = () => {
 };
 
 export default EditUserPage;
-

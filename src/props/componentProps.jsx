@@ -124,3 +124,51 @@ export const doughnutChart = {
       ])
     ).isRequired,
   }
+
+  export const plaidLinkProps = {
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired, // Example properties; adjust based on your User type
+      email: PropTypes.string.isRequired,
+    }).isRequired,
+    variant: PropTypes.oneOf(["primary", "ghost"]),
+    dwollaCustomerId: PropTypes.string,
+  };
+
+  export const exchangePublicTokenProps = {
+    publicToken: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired, // Assuming `User` is an object; adjust as necessary
+  };
+
+  export const addFundingSourceProps={
+    dwollaCustomerId: PropTypes.string.isRequired,
+    processorToken: PropTypes.string.isRequired,
+    bankName: PropTypes.string.isRequired,
+  }
+
+  export const newDwollaCustomerProps={
+    firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  address1: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  postalCode: PropTypes.string.isRequired,
+  dateOfBirth: PropTypes.string.isRequired,
+  ssn: PropTypes.string.isRequired,
+  }
+
+  export const transferComponentprops={
+    sourceFundingSourceUrl: PropTypes.string.isRequired,
+    destinationFundingSourceUrl: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+  }
+
+  export const createBankAccountProps={
+    accessToken: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  accountId: PropTypes.string.isRequired,
+  bankId: PropTypes.string.isRequired,
+  fundingSourceUrl: PropTypes.string.isRequired,
+  shareableId: PropTypes.string.isRequired,
+  }

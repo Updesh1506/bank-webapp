@@ -145,3 +145,7 @@ export const formatDateTime = (dateString) => {
     timeOnly: formattedTime,
   };
 };
+
+export function encryptId(id) {
+  return btoa(id);
+}
