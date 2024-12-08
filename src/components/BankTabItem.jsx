@@ -1,21 +1,19 @@
 "use client";
 
-import { useSearchParams, useNavigate} from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { cn, formUrlQuery } from "@/lib/utils";
 import { bankTabItemProps } from "@/props/componentProps";
+import { useAtom } from "jotai";
+import { bankIdAtom } from "@/jotai/atoms";
 
 export const BankTabItem = ({ account, appwriteItemId }) => {
-  const searchParams = useSearchParams();
-  const navigate = useNavigate();
-  const isActive = appwriteItemId === account?.appwriteItemId;
+  //const searchParams = useSearchParams();
+  //const navigate = useNavigate();
+  const [bankIdAt, setBankIdAtom] = useAtom(bankIdAtom);
+  const isActive = bankIdAt === account?.bankId;
 
   const handleBankChange = () => {
-    const newUrl = formUrlQuery({
-      params: searchParams.toString(),
-      key: "id",
-      value: account?.appwriteItemId,
-    });
-    navigate(newUrl, { replace: false });
+    setBankIdAtom(account.bankId);
   };
 
   return (
@@ -36,4 +34,4 @@ export const BankTabItem = ({ account, appwriteItemId }) => {
   );
 };
 
-BankTabItem.propTypes = bankTabItemProps
+BankTabItem.propTypes = bankTabItemProps;

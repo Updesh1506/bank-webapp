@@ -6,9 +6,8 @@ import BankInfo from "./BankInfo";
 import TransactionTable from "./TransactionTable";
 import { transactionData } from "@/lib/transaction_data";
 
-const RecentTransaction = () => {
-  const { accounts, transactions, appwriteItemId } = transactionData;
-  console.log(typeof(transactions));
+const RecentTransaction = ({ transactions, accounts, page = 1 }) => {
+  const { appwriteItemId } = transactionData;
   return (
     <section className="recent-transactions">
       <header className="flex items-center justify-between">
@@ -20,7 +19,7 @@ const RecentTransaction = () => {
       <Tabs defaultValue={appwriteItemId} className="w-full">
         <TabsList className="recent-transactions-tablist">
           {accounts.map((account) => (
-            <TabsTrigger key={account.id} value={account.appwriteItemId}>
+            <TabsTrigger key={account.id} value={account.bankId}>
               <BankTabItem
                 key={account.id}
                 account={account}
@@ -31,7 +30,7 @@ const RecentTransaction = () => {
         </TabsList>
         {accounts.map((account) => (
           <TabsContent
-            value={account.appwriteItemId}
+            value={account.bankId}
             key={account.id}
             className="space-y-4"
           >
