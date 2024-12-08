@@ -18,9 +18,11 @@ const Home = () => {
   const { userId, isSignedIn } = useAuth();
   const { user } = useUser();
 
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     const getBankDetails = async () => {
-      const res = await axios.get("http://localhost:3000/bank/getAccounts", {
+      const res = await axios.get(`${apiUrl}/bank/getAccounts`, {
         params: { userId: userId },
       });
       setAccounts(res.data.accounts);
@@ -35,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     const getAccount = async () => {
-      const res = await axios.get("http://localhost:3000/bank/getAccount", {
+      const res = await axios.get(`${apiUrl}/bank/getAccount`, {
         params: {
           bankId: bankIdAt,
         },

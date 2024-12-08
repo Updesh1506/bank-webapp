@@ -11,18 +11,16 @@ const PlaidLink = ({ user, variant }) => {
   const { userId } = useAuth();
   const [token, setToken] = useState("");
   const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     const getLinkToken = async () => {
-      const data = await axios.get(
-        `http://localhost:3000/plaid/createLinkToken`,
-        {
-          params: {
-            userId: user.id,
-            userName: user.name,
-          },
+      const data = await axios.get(`${apiUrl}/plaid/createLinkToken`, {
+        params: {
+          userId: user.id,
+          userName: user.name,
         },
-      );
+      });
       setToken(data?.data.linkToken);
     };
 
@@ -32,7 +30,7 @@ const PlaidLink = ({ user, variant }) => {
   const onSuccess = useCallback((public_token, metadata) => {
     // log and save metadata
     // exchange public token (if using Item-based products)
-    axios.post("http://localhost:3000/plaid/exchangeToken", {
+    axios.post(`${apiUrl}/plaid/exchangeToken`, {
       public_token: public_token,
       userId: userId,
     });
