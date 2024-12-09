@@ -29,6 +29,7 @@ export default function IndexPage() {
             user={{ id: userId, name: user.fullName }}
             variant="primary"
           />
+        <Button onClick={()=> navigate("/home")}>Go to Home</Button>
         </div>
       )}
     </div>
